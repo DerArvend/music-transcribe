@@ -82,7 +82,8 @@ def get_note_list(freq_blocks_list) -> list:
 
     for block in freq_blocks_list:
         pitch = min(pitches_dict.keys(), key=lambda x: abs(x - block.pitch))
-        pitch_class, octave = list(pitches_dict[pitch])
+        pitch_class = pitches_dict[pitch][:-1]
+        octave = pitches_dict[pitch][-1]
 
         notes_list.append(Note(pitch_class, int(octave)))
 

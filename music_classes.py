@@ -13,7 +13,7 @@ class Note:
     lp_octave_system = {1: ",,", 2: ",", 3: "", 4: "'", 5: "''", 6: "'''", 7: "''''", 8: "'''''"}
 
     def __init__(self, pitch_class: str, octave: int, note_value: NoteValue = NoteValue(4)):
-        pitch_class = pitch_class.upper()
+        pitch_class = pitch_class
         if (not self.__is_valid_pitch_class(pitch_class)) or (octave not in range(1, 9)):
             raise ValueError('Wrong pitch class or octave')
 
@@ -32,7 +32,7 @@ class Note:
 
     @staticmethod
     def __is_valid_pitch_class(pitch_class: str) -> bool:
-        flag = pitch_class in ['A', 'B', 'C', 'D', 'E', 'F', 'G']
+        flag = pitch_class in ['A', 'Bis', 'B', 'C', 'Dis', 'D', 'Eis', 'E', 'F', 'Gis', 'G', 'Ais']
         return flag
 
 
